@@ -1,4 +1,4 @@
-import Client from 'avanti-core/client';
+import Client from 'avanti-core/dist/client';
 import chalk from 'chalk';
 
 export const execute = async (options) => {

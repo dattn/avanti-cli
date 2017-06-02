@@ -1,11 +1,11 @@
 import chalk from 'chalk';
-import setup from 'avanti-core/setup';
+import setup from 'avanti-core/dist/setup';
 import yargonaut from 'yargonaut';
 import yargs from 'yargs';
 import packageJson from '../package.json';
-import * as Client from 'avanti-core/client';
-import * as Host from 'avanti-core/host';
-import * as Task from 'avanti-core/task';
+import * as Client from 'avanti-core/dist/client';
+import * as Host from 'avanti-core/dist/host';
+import * as Task from 'avanti-core/dist/task';
 
 const handleError = err => {
     process.exitCode = 1;

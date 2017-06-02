@@ -1,4 +1,4 @@
-import Host from 'avanti-core/host';
+import Host from 'avanti-core/dist/host';
 import chalk from 'chalk';
 import { table } from 'table';
 

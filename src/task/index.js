@@ -1,4 +1,4 @@
-import * as Task from 'avanti-core/task';
+import * as Task from 'avanti-core/dist/task';
 
 export const command = 'task <task>';
 

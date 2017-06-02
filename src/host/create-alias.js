@@ -1,5 +1,5 @@
-import Client from 'avanti-core/client';
-import Host from 'avanti-core/host';
+import Client from 'avanti-core/dist/client';
+import Host from 'avanti-core/dist/host';
 import chalk from 'chalk';
 
 export const execute = async (options) => {
