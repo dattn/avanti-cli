@@ -2,7 +2,8 @@ import chalk from 'chalk';
 import setup from 'avanti-core/dist/setup';
 import yargonaut from 'yargonaut';
 import yargs from 'yargs';
-import packageJson from '../package.json';
+import cliPackage from '../package.json';
+import corePackage from 'avanti-core/package.json';
 import * as Client from './client';
 import * as Host from './host';
 import * as Task from './task';
@@ -37,7 +38,10 @@ try {
             .errorsStyle('red.bold');
 
         var options = yargs
-            .version(packageJson.version)
+            .version([
+                `Core: ${corePackage.version}`,
+                `Cli: ${cliPackage.version}`
+            ].join('\n'))
 
             .command(Client.command, Client.description, Client.options, handleCommand(Client, yargs))
             .command(Host.command, Host.description, Host.options, handleCommand(Host, yargs))
