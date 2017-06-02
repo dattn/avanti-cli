@@ -4,7 +4,7 @@
     "description": "",
     "main": "dist/index.js",
     "bin": {
-        "avanti-cli": "bin/avanti"
+        "avanti": "bin/avanti"
     },
     "scripts": {
         "prepublish": "gulp build"
@@ -14,7 +14,7 @@
         "url": "git+https://github.com/IONlu/avanti-cli.git"
     },
     "peerDependencies": {
-        "avanti-core": "0.3.x"
+        "avanti-core": "0.4.x"
     },
     "author": "",
     "license": "MIT",
