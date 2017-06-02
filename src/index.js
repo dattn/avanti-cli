@@ -3,9 +3,9 @@ import setup from 'avanti-core/dist/setup';
 import yargonaut from 'yargonaut';
 import yargs from 'yargs';
 import packageJson from '../package.json';
-import * as Client from 'avanti-core/dist/client';
-import * as Host from 'avanti-core/dist/host';
-import * as Task from 'avanti-core/dist/task';
+import * as Client from './client';
+import * as Host from './host';
+import * as Task from './task';
 
 const handleError = err => {
     process.exitCode = 1;
