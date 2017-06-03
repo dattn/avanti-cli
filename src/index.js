@@ -31,7 +31,7 @@ try {
         throw 'Avanti needs root privileges';
     }
 
-    setup('/opt/avanti').then(() => {
+    setup().then(() => {
         yargonaut
             .style('blue')
             .helpStyle('green')
