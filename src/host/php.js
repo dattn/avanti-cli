@@ -1,4 +1,5 @@
 import Client from 'avanti-core/dist/client';
+import Host from 'avanti-core/dist/host';
 import chalk from 'chalk';
 
 export const execute = async (options) => {
@@ -8,14 +9,14 @@ export const execute = async (options) => {
         return;
     }
 
-    if (!options.client) {
-        process.exitCode = 1;
-        process.stderr.write(chalk.red('Missing required argument: client') + '\n');
-        return;
-    }
-
     try {
-        await (new Client(options.client)).host(options.host).php(options.php);
+        var host;
+        if (options.client) {
+            host = (await Client.get(options.client)).host(options.host);
+        } else {
+            host = await Host.get(options.host);
+        }
+        await host.php(options.php);
     } catch(e) {
         process.exitCode = 1;
         process.stderr.write(chalk.red(chalk.bold('ERROR:') + ' ' + e) + '\n');
