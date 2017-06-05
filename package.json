@@ -1,42 +1,43 @@
 {
-    "name": "avanti-cli",
-    "version": "0.1.1",
-    "description": "",
-    "main": "dist/index.js",
-    "bin": {
-        "avanti": "bin/avanti"
-    },
-    "scripts": {
-        "prepublish": "gulp build"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/IONlu/avanti-cli.git"
-    },
-    "peerDependencies": {
-        "avanti-core": "0.4.x"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/IONlu/avanti-cli/issues"
-    },
-    "homepage": "https://github.com/IONlu/avanti-cli#readme",
-    "dependencies": {
-        "chalk": "^1.1.3",
-        "table": "^4.0.1",
-        "yargonaut": "^1.1.2",
-        "yargs": "^8.0.1"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-eslint": "^7.2.3",
-        "babel-plugin-syntax-async-functions": "^6.13.0",
-        "babel-plugin-transform-async-to-generator": "^6.24.1",
-        "babel-preset-env": "^1.5.1",
-        "babel-preset-stage-3": "^6.24.1",
-        "babel-register": "^6.24.1",
-        "gulp": "^3.9.1",
-        "gulp-babel": "^6.1.2"
-    }
+  "name": "avanti-cli",
+  "version": "0.1.1",
+  "description": "",
+  "main": "dist/index.js",
+  "bin": {
+    "avanti": "bin/avanti"
+  },
+  "scripts": {
+    "prepublish": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IONlu/avanti-cli.git"
+  },
+  "peerDependencies": {
+    "avanti-core": "0.4.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IONlu/avanti-cli/issues"
+  },
+  "homepage": "https://github.com/IONlu/avanti-cli#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "inquirer": "^3.0.6",
+    "table": "^4.0.1",
+    "yargonaut": "^1.1.2",
+    "yargs": "^8.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2"
+  }
 }
