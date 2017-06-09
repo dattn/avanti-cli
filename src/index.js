@@ -27,47 +27,41 @@ const handleCommand = (handler, yargs) => {
     };
 };
 
-// init task logger
-TaskLogger.add(Log.transports.Console, {
-    level: 'run',
-    colorize: true
-});
 
-try {
+(async () => {
+    await setup();
 
-    if (process.getuid() !== 0) {
-        throw 'Avanti needs root privileges';
-    }
-
-    setup().then(() => {
-        yargonaut
-            .style('blue')
-            .helpStyle('green')
-            .errorsStyle('red.bold');
-
-        var options = yargs
-            .version([
-                `Core: ${corePackage.version}`,
-                `Cli: ${cliPackage.version}`
-            ].join('\n'))
-
-            .command(Client.command, Client.description, Client.options, handleCommand(Client, yargs))
-            .command(Host.command, Host.description, Host.options, handleCommand(Host, yargs))
-            .command(Task.command, Task.description, Task.options, handleCommand(Task, yargs))
-
-            .recommendCommands()
-            .help()
-            .argv;
-
-        if (options._.length === 0) {
-            yargs.showHelp();
-            process.exit();
-        }
-
-    }, err => {
-        throw err;
+    // add console to loggers
+    TaskLogger.add(Log.transports.Console, {
+        level: 'run',
+        colorize: true
+    });
+    Log.add(Log.transports.Console, {
+        level: 'warning',
+        colorize: true
     });
 
-} catch(err) {
-    handleError(err);
-}
+    yargonaut
+        .style('blue')
+        .helpStyle('green')
+        .errorsStyle('red.bold');
+
+    var options = yargs
+        .version([
+            `Core: ${corePackage.version}`,
+            `Cli: ${cliPackage.version}`
+        ].join('\n'))
+
+        .command(Client.command, Client.description, Client.options, handleCommand(Client, yargs))
+        .command(Host.command, Host.description, Host.options, handleCommand(Host, yargs))
+        .command(Task.command, Task.description, Task.options, handleCommand(Task, yargs))
+
+        .recommendCommands()
+        .help()
+        .argv;
+
+    if (options._.length === 0) {
+        yargs.showHelp();
+        process.exit();
+    }
+})();
