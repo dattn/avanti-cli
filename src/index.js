@@ -2,11 +2,13 @@ import chalk from 'chalk';
 import setup from 'avanti-core/dist/setup';
 import yargonaut from 'yargonaut';
 import yargs from 'yargs';
+import Log from 'avanti-core/dist/log';
 import cliPackage from '../package.json';
 import corePackage from 'avanti-core/package.json';
 import * as Client from './client';
 import * as Host from './host';
 import * as Task from './task';
+import { logger as TaskLogger } from 'avanti-core/dist/task';
 
 const handleError = err => {
     process.exitCode = 1;
@@ -24,6 +26,12 @@ const handleCommand = (handler, yargs) => {
         process.exit();
     };
 };
+
+// init task logger
+TaskLogger.add(Log.transports.Console, {
+    level: 'run',
+    colorize: true
+});
 
 try {
 
