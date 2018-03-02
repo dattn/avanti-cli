@@ -5,19 +5,36 @@ import { table } from 'table';
 export const execute = async () => {
     try {
         var hosts = await Host.list();
+
+        let aliasLength = hosts.reduce((acc, cur) => {
+            let alias = cur.alias.split(',')
+            return Math.max(acc, alias.reduce((acc, cur) => Math.max(acc, cur.length), 0))
+        }, 5)
+
         var rows = hosts.map(row => {
+            let alias = row.alias.split(',').sort()
+            alias = alias.map(alias => alias.padEnd(aliasLength, ' '))
             return [
                 row.host,
                 row.user,
                 row.path,
                 row.client,
-                row.php
+                row.php,
+                alias.join('')
             ];
         });
         var header = [
-            'Host', 'User', 'Path', 'Client', 'PHP'
+            'Host', 'User', 'Path', 'Client', 'PHP', 'Alias'
         ].map(text => chalk.bold(text));
-        process.stdout.write(table([ header, ...rows ]));
+        process.stdout.write(
+            table([ header, ...rows ], {
+                columns: {
+                    5: {
+                        width: aliasLength
+                    }
+                }
+            })
+        );
     } catch(e) {
         process.exitCode = 1;
         process.stderr.write(chalk.red(chalk.bold('ERROR:') + ' ' + e) + '\n');
