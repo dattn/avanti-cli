@@ -43,11 +43,15 @@ export const options = {
     'remove-option': {
         describe: 'remove option',
         type: 'array'
+    },
+    refresh: {
+        describe: 'rebuild config (vhost, fpm, ...)',
+        type: 'boolean'
     }
 };
 
 export const handle = (argv, yargs) => {
-    var actions = ['list', 'create', 'remove', 'create-alias', 'remove-alias', 'php', 'set-option', 'remove-option'];
+    var actions = ['list', 'create', 'remove', 'create-alias', 'remove-alias', 'php', 'set-option', 'remove-option', 'refresh'];
     for (let i = 0; i < actions.length; i++) {
         if (argv[actions[i]]) {
             return require('./' + actions[i]).execute(argv);
