@@ -34,11 +34,20 @@ export const options = {
     php: {
         describe: 'php version',
         type: 'string'
+    },
+    'set-option': {
+        alias: 'option',
+        describe: 'set option',
+        type: 'array'
+    },
+    'remove-option': {
+        describe: 'remove option',
+        type: 'array'
     }
 };
 
 export const handle = (argv, yargs) => {
-    var actions = ['list', 'create', 'remove', 'create-alias', 'remove-alias', 'php'];
+    var actions = ['list', 'create', 'remove', 'create-alias', 'remove-alias', 'php', 'set-option', 'remove-option'];
     for (let i = 0; i < actions.length; i++) {
         if (argv[actions[i]]) {
             return require('./' + actions[i]).execute(argv);
