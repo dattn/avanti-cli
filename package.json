@@ -1,6 +1,6 @@
 {
     "name": "avanti-cli",
-    "version": "0.1.3",
+    "version": "0.2.0",
     "description": "",
     "main": "dist/index.js",
     "bin": {
@@ -14,7 +14,7 @@
         "url": "git+https://github.com/IONlu/avanti-cli.git"
     },
     "peerDependencies": {
-        "avanti-core": "0.4.x"
+        "avanti-core": "0.5.x"
     },
     "author": "",
     "license": "MIT",
