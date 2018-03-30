@@ -9,6 +9,12 @@ export const execute = async (options) => {
         return;
     }
 
+    if (!options['set-option'] || options['set-option'].length !== 3) {
+        process.exitCode = 1;
+        process.stderr.write(chalk.red('Invalid option. Options must be specified with "--set-option [type] [key] [value]"') + '\n');
+        return;
+    }
+
     try {
         var host;
         if (options.client) {
@@ -16,7 +22,8 @@ export const execute = async (options) => {
         } else {
             host = await Host.get(options.host);
         }
-        await host.removeAlias(options['remove-alias']);
+        let [ type, key, value ] = options['set-option'];
+        await host.setOption(type, key, value);
     } catch(e) {
         process.exitCode = 1;
         process.stderr.write(chalk.red(chalk.bold('ERROR:') + ' ' + e) + '\n');

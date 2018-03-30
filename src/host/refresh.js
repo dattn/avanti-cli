@@ -16,7 +16,7 @@ export const execute = async (options) => {
         } else {
             host = await Host.get(options.host);
         }
-        await host.removeAlias(options['remove-alias']);
+        await host.refresh();
     } catch(e) {
         process.exitCode = 1;
         process.stderr.write(chalk.red(chalk.bold('ERROR:') + ' ' + e) + '\n');
