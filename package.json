@@ -1,6 +1,6 @@
 {
     "name": "avanti-cli",
-    "version": "0.2.0",
+    "version": "0.4.0",
     "description": "",
     "main": "dist/index.js",
     "bin": {
@@ -14,7 +14,7 @@
         "url": "git+https://github.com/IONlu/avanti-cli.git"
     },
     "peerDependencies": {
-        "avanti-core": "0.5.x"
+        "avanti-core": "0.6.x"
     },
     "author": "",
     "license": "MIT",
@@ -23,21 +23,19 @@
     },
     "homepage": "https://github.com/IONlu/avanti-cli#readme",
     "dependencies": {
-        "chalk": "^2.3.1",
-        "inquirer": "^5.1.0",
-        "table": "^4.0.1",
-        "yargonaut": "^1.1.2",
-        "yargs": "^11.0.0"
+        "chalk": "^2.4.2",
+        "inquirer": "^6.2.2",
+        "table": "^5.2.3",
+        "yargonaut": "^1.1.4",
+        "yargs": "^13.2.2"
     },
     "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-eslint": "^8.2.2",
-        "babel-plugin-syntax-async-functions": "^6.13.0",
-        "babel-plugin-transform-async-to-generator": "^6.24.1",
-        "babel-preset-env": "^1.5.1",
-        "babel-preset-stage-3": "^6.24.1",
-        "babel-register": "^6.24.1",
-        "gulp": "^3.9.1",
-        "gulp-babel": "^7.0.1"
+        "@babel/core": "^7.4.0",
+        "@babel/preset-env": "^7.4.2",
+        "babel-cli": "^6.26.0",
+        "babel-eslint": "^10.0.1",
+        "babel-register": "^6.26.0",
+        "gulp": "^4.0.0",
+        "gulp-babel": "^8.0.0"
     }
 }
