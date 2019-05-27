@@ -47,11 +47,27 @@ export const options = {
     refresh: {
         describe: 'rebuild config (vhost, fpm, ...)',
         type: 'boolean'
-    }
+    },
+    'create-ftp': {
+        alias: 'ftp',
+        describe: 'create ftp account',
+        type: 'string'
+    },
+    'remove-ftp': {
+        describe: 'remove ftp account',
+        type: 'boolean'
+    },
 };
 
 export const handle = (argv, yargs) => {
-    var actions = ['list', 'create', 'remove', 'create-alias', 'remove-alias', 'php', 'set-option', 'remove-option', 'refresh'];
+    var actions = [
+        'list', 'create', 'remove',
+        'create-alias', 'remove-alias',
+        'php',
+        'set-option', 'remove-option',
+        'refresh',
+        'create-ftp', 'remove-ftp'
+    ];
     for (let i = 0; i < actions.length; i++) {
         if (argv[actions[i]]) {
             return require('./' + actions[i]).execute(argv);
